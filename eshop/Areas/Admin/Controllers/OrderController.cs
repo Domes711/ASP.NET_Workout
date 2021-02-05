@@ -13,7 +13,7 @@ using eshop.Models.Identity;
 namespace eshop.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = nameof(Roles.Admin) + ", " + nameof(Roles.Manager))]
+    [Authorize(Roles = nameof(Roles.Admin) + ", " + nameof(Roles.Manager))] //TODO - concat picoo
     public class OrderController : Controller
     {
         private readonly EshopDBContext _context;
@@ -58,7 +58,7 @@ namespace eshop.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,OrderNumber")] Order order)
+        public async Task<IActionResult> Create([Bind("ID,OrderNumber")] Order order) //todo - kokos bind ani nevim co dela
         {
             if (ModelState.IsValid)
             {
@@ -139,7 +139,7 @@ namespace eshop.Areas.Admin.Controllers
         }
 
         // POST: Admin/Order/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete")] //todo - radsi httppost("Delete")
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
